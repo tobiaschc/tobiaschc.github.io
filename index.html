@@ -3,17 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tobías Chavarría — Freelance DevOps / Data Engineer</title>
-    <meta name="description" content="Freelance DevOps/Data Engineer in Madrid helping teams design, automate, and operate reliable data platforms and pipelines. B2B focused. Available for projects." />
+    <title>Tobías Chavarría — Data Platform Engineer</title>
+    <meta name="description" content="Data (Platform) Engineer | Cloud Native | Databricks. Helping engineering teams design, build, and operate reliable data platforms. Based in Madrid." />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://tobiashc.com/" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#2563eb" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0c10" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a" />
 
-    <!-- Open Graph (basic) -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Tobías Chavarría — Freelance DevOps / Data Engineer" />
-    <meta property="og:description" content="I help engineering teams build and operate reliable data platforms and pipelines." />
+    <meta property="og:title" content="Tobías Chavarría — Data Platform Engineer" />
+    <meta property="og:description" content="I help engineering teams design, build, and operate reliable cloud-native data platforms." />
     <meta property="og:url" content="https://tobiashc.com/" />
     <meta property="og:image" content="assets/og-image.svg" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -21,60 +20,76 @@
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <meta name="color-scheme" content="light dark" />
 
+    <!-- Fonts: Inter Tight for display, Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
   </head>
   <body>
+    <!-- Mobile header -->
     <header class="header" role="banner">
       <div class="header-inner">
         <a class="brand" href="#" aria-label="Homepage">
           <span class="brand-mark" aria-hidden="true">TC</span>
           <span class="brand-name">Tobías Chavarría</span>
         </a>
-        <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="header-nav">Menu</button>
+        <div class="header-actions">
+          <a class="btn btn-small hide-on-mobile" href="tobias_chavarria_c_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+          <button class="theme-toggle theme-header" aria-label="Toggle dark mode" aria-pressed="false"></button>
+          <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="header-nav">Menu</button>
+        </div>
       </div>
-      <nav id="header-nav" class="header-nav" aria-label="Mobile Primary Navigation">
+      <nav id="header-nav" class="header-nav" aria-label="Mobile navigation">
         <ul>
+          <li><a href="#experience">Experience</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#tech">Tech</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#writing">Writing</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
+
     <a class="skip-link" href="#main">Skip to content</a>
+
     <div class="layout">
+      <!-- Sidebar (desktop) -->
       <aside class="sidebar" role="complementary">
         <div class="sidebar-inner">
-          <a class="brand" href="#" aria-label="Homepage">
-            <span class="brand-mark" aria-hidden="true">TC</span>
-            <span class="brand-name">Tobías Chavarría</span>
-          </a>
-          <p class="role">Freelance DevOps / Data Engineer</p>
-          <div class="availability" aria-live="polite">
-            <span class="pill">Available for projects</span>
+          <div class="sidebar-top">
+            <a class="brand" href="#" aria-label="Homepage">
+              <span class="brand-mark" aria-hidden="true">TC</span>
+              <span class="brand-name">Tobías Chavarría</span>
+            </a>
+            <p class="role">Data Platform Engineer</p>
+            <div class="availability">
+              <span class="pill">Available for projects</span>
+            </div>
           </div>
+
           <nav class="site-nav" aria-label="Primary">
+            <p class="sidebar-label" aria-hidden="true">Navigate</p>
             <ul>
+              <li><a href="#experience">Experience</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#services">Services</a></li>
               <li><a href="#tech">Tech</a></li>
               <li><a href="#projects">Projects</a></li>
-              <li><a href="#writing">Writing</a></li>
               <li><a href="#process">Process</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </nav>
-          <div class="sidebar-actions">
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">Toggle theme</button>
+
+          <div class="sidebar-bottom">
+            <p class="sidebar-label" aria-hidden="true">Connect</p>
             <div class="socials">
-              <a href="mailto:tobias.chavarria.castro@gmail.com" aria-label="Email">Email</a>
-              <span aria-hidden="true">·</span>
+              <a href="mailto:contact@tobiaschc.com" aria-label="Email">Email</a>
               <a href="https://www.linkedin.com/in/tobiaschc/" target="_blank" rel="me noopener" aria-label="LinkedIn">LinkedIn</a>
-              <span aria-hidden="true">·</span>
               <a href="https://github.com/tobiaschc" target="_blank" rel="me noopener" aria-label="GitHub">GitHub</a>
             </div>
           </div>
@@ -82,217 +97,326 @@
       </aside>
 
       <main id="main" class="content" tabindex="-1">
-      <!-- Hero -->
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="container content-narrow">
-          <h1 id="hero-title" class="hero-title" data-reveal>
-            Build and run dependable data platforms
-          </h1>
-          <p class="hero-sub" data-reveal>
-            I help engineering teams design, automate, and operate reliable data platforms and pipelines — with a pragmatic blend of DevOps and Data Engineering.
-          </p>
-          <div class="hero-ctas" data-reveal>
-            <a class="btn btn-primary" href="#contact">Let’s talk</a>
-            <a class="btn btn-ghost" href="#projects">View projects</a>
-          </div>
-          <p class="hero-meta" data-reveal>
-            Madrid, Spain • Remote-friendly • B2B engagements
-          </p>
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="section" aria-labelledby="about-title">
-        <div class="container content-narrow">
-          <h2 id="about-title" class="section-title" data-reveal>About me</h2>
-          <div class="lead" data-reveal>
-            <p>
-              I’m a freelance DevOps / Data Engineer focused on automation, data pipelines, cloud platforms, and operational reliability. I bridge infrastructure and data engineering to help teams deliver faster with confidence.
+        <!-- Hero -->
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="container content-narrow">
+            <div class="hero-badge show-on-mobile" aria-label="Role and availability">
+              <span class="pill pill-accent">Data Platform Engineer</span>
+              <span class="muted">Available for projects</span>
+            </div>
+            <h1 id="hero-title" class="hero-title" data-reveal>
+              I build and operate<br />reliable data platforms
+            </h1>
+            <p class="hero-sub" data-reveal>
+              Data Platform Engineer with a cloud-native approach. I help engineering teams design pipelines, automate infrastructure, and ship data systems that stay up.
+            </p>
+            <div class="hero-ctas" data-reveal>
+              <a class="btn btn-primary" href="#contact">Let's talk</a>
+              <a class="btn btn-outline" href="#projects">View projects</a>
+            </div>
+            <p class="hero-meta" data-reveal>
+              Based in Madrid. Remote-friendly. B2B engagements across Europe.
             </p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Services -->
-      <section id="services" class="section" aria-labelledby="services-title">
-        <div class="container">
-          <h2 id="services-title" class="section-title" data-reveal>Services</h2>
-          <div class="grid cards" data-reveal>
-            <article class="card">
-              <h3>Data pipeline automation</h3>
-              <p>Design, build, and harden ingestion and transformation pipelines with robust testing and CI.</p>
-            </article>
-            <article class="card">
-              <h3>Databricks platform & workflows</h3>
-              <p>Job orchestration, cluster governance, and workspace automation aligned to best practices.</p>
-            </article>
-            <article class="card">
-              <h3>CI/CD & infrastructure</h3>
-              <p>Versioned infrastructure, repeatable deployments, and secure release pipelines.</p>
-            </article>
-            <article class="card">
-              <h3>Observability & reliability</h3>
-              <p>End‑to‑end visibility with metrics, logs, and alerts to keep platforms healthy.</p>
-            </article>
-            <article class="card">
-              <h3>Python integration & ingestion</h3>
-              <p>Robust connectors, schema management, and retries/backoff for real‑world data.</p>
-            </article>
-            <article class="card">
-              <h3>Data process optimization</h3>
-              <p>Throughput, cost, and reliability improvements across jobs and storage layers.</p>
-            </article>
+        <!-- Clients -->
+        <section id="clients" class="section" aria-labelledby="clients-title">
+          <div class="container">
+            <div class="logos-header" data-reveal>
+              <p class="eyebrow" id="clients-title">Trusted by teams at</p>
+            </div>
+            <ul class="logo-row" data-reveal>
+              <li class="logo-item">Amadeus</li>
+              <li class="logo-item">BASF</li>
+              <li class="logo-item">BBVA</li>
+              <li class="logo-item">Adaltas</li>
+              <li class="logo-item">Banco Nacional CR</li>
+            </ul>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Tech Stack -->
-      <section id="tech" class="section" aria-labelledby="tech-title">
-        <div class="container">
-          <h2 id="tech-title" class="section-title" data-reveal>Tech stack</h2>
-          <div class="tech-grid" data-reveal>
-            <div class="tech-col">
-              <h3>Languages</h3>
-              <ul>
-                <li>Python</li>
-                <li>SQL</li>
-              </ul>
-            </div>
-            <div class="tech-col">
-              <h3>Platform</h3>
-              <ul>
-                <li>Databricks</li>
-                <li>Linux</li>
-                <li>Docker</li>
-              </ul>
-            </div>
-            <div class="tech-col">
-              <h3>Infrastructure</h3>
-              <ul>
-                <li>Cloud & platform engineering</li>
-                <li>Workflow orchestration</li>
-                <li>Database design</li>
-              </ul>
-            </div>
-            <div class="tech-col">
-              <h3>Data</h3>
-              <ul>
-                <li>Data pipelines</li>
-                <li>Data platform administration</li>
-              </ul>
-            </div>
-            <div class="tech-col">
-              <h3>DevOps</h3>
-              <ul>
-                <li>CI/CD & automation</li>
-                <li>Observability</li>
-              </ul>
+        <!-- Experience -->
+        <section id="experience" class="section" aria-labelledby="experience-title">
+          <div class="container">
+            <h2 id="experience-title" class="section-title" data-reveal>Experience</h2>
+            <div class="timeline" data-reveal>
+              <article class="timeline-item">
+                <div class="timeline-period">2026 — Present</div>
+                <div class="timeline-body">
+                  <h3>Data Platform Engineer <span class="muted">/ Amadeus</span></h3>
+                  <p>Data platform engineering for one of the world's largest travel technology companies. Cloud-native infrastructure and data systems at scale.</p>
+                </div>
+              </article>
+              <article class="timeline-item">
+                <div class="timeline-period">2025 — 2026</div>
+                <div class="timeline-body">
+                  <h3>Senior Cloud Data Software Engineer <span class="muted">/ BASF</span></h3>
+                  <p>Data distribution strategies with Unity Catalog, Azure Data Factory, and Databricks. Built a metadata-driven ingestion framework for cross-team data sharing.</p>
+                </div>
+              </article>
+              <article class="timeline-item">
+                <div class="timeline-period">2023 — 2025</div>
+                <div class="timeline-body">
+                  <h3>Machine Learning Engineer <span class="muted">/ BBVA AI Factory</span></h3>
+                  <p>End-to-end OCR with Textract and Azure LLM. RAG-based financial chatbot. ETL pipelines with PySpark on SageMaker, EMR, and S3. Productionized ML models at scale.</p>
+                </div>
+              </article>
+              <article class="timeline-item">
+                <div class="timeline-period">2022 — 2023</div>
+                <div class="timeline-body">
+                  <h3>Big Data Engineer <span class="muted">/ Adaltas, Paris</span></h3>
+                  <p>End-to-end architecture on AWS with Cloudera Data Platform. Terraform, Ansible, and Vagrant for infrastructure. Presented on vector databases at company summit.</p>
+                </div>
+              </article>
+              <article class="timeline-item">
+                <div class="timeline-period">2020 — 2022</div>
+                <div class="timeline-body">
+                  <h3>Mathematical Models Developer <span class="muted">/ Banco Nacional de Costa Rica</span></h3>
+                  <p>ML models for risk management. ATM failure classification in R. Expected loss models implementing IFRS 9 in collaboration with EY.</p>
+                </div>
+              </article>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Projects -->
-      <section id="projects" class="section" aria-labelledby="projects-title">
-        <div class="container">
-          <h2 id="projects-title" class="section-title" data-reveal>Featured projects</h2>
-          <div class="project-list" data-reveal>
-            <a class="project-row" href="#" aria-label="IngestionKit — details">
-              <div class="project-title">IngestionKit — Python data ingestion library</div>
-              <div class="project-meta">Python · SQL · Docker · GitHub Actions</div>
-              <div class="project-arrow" aria-hidden="true">→</div>
-            </a>
-            <a class="project-row" href="#" aria-label="Databricks orchestration — details">
-              <div class="project-title">Databricks workflow orchestration for analytics</div>
-              <div class="project-meta">Databricks · Python · SQL · Orchestration</div>
-              <div class="project-arrow" aria-hidden="true">→</div>
-            </a>
-            <a class="project-row" href="#" aria-label="Deployment & Observability — details">
-              <div class="project-title">Pipeline deployment & observability platform</div>
-              <div class="project-meta">CI/CD · Docker · Observability · Python</div>
-              <div class="project-arrow" aria-hidden="true">→</div>
-            </a>
+        <!-- About -->
+        <section id="about" class="section" aria-labelledby="about-title">
+          <div class="container content-narrow">
+            <h2 id="about-title" class="section-title" data-reveal>About</h2>
+            <div class="about-lead" data-reveal>
+              <p>
+                Tinkerer. Builder. Always one tweak away from a better workflow. I work where data, software, and infrastructure meet — building things that are reliable, maintainable, and pleasant to work with.
+              </p>
+              <p>
+                I've worked across travel tech, chemicals, fintech, consulting, and banking in Costa Rica, France, and Spain. Background in mathematics, with an MSc in Data Engineering for AI and a Master's in Mathematical Methods.
+              </p>
+            </div>
+            <div class="about-grid" data-reveal>
+              <div class="about-col">
+                <h3>Approach</h3>
+                <ul>
+                  <li>Pragmatic engineering over complexity</li>
+                  <li>Reliability and observability first</li>
+                  <li>Strong collaboration with product and platform teams</li>
+                </ul>
+              </div>
+              <div class="about-col">
+                <h3>Education</h3>
+                <ul>
+                  <li>MSc Data Engineering for AI — DSTI</li>
+                  <li>BSc Mathematics — UCR</li>
+                </ul>
+              </div>
+              <div class="about-col">
+                <h3>Certifications</h3>
+                <ul>
+                  <li>Kubernetes and Cloud Native Associate (KCNA)</li>
+                  <li>Azure Data Engineer Associate</li>
+                  <li>Terraform Associate</li>
+                </ul>
+              </div>
+              <div class="about-col">
+                <h3>Languages</h3>
+                <ul>
+                  <li>Spanish — native</li>
+                  <li>English — fluent</li>
+                  <li>French — professional working</li>
+                </ul>
+              </div>
+            </div>
+            <p class="about-cta" data-reveal>
+              <a class="btn btn-outline" href="tobias_chavarria_c_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+            </p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Writing -->
-      <section id="writing" class="section" aria-labelledby="writing-title">
-        <div class="container">
-          <h2 id="writing-title" class="section-title" data-reveal>Selected writing</h2>
-          <div class="project-list" data-reveal>
-            <a class="project-row" href="https://example.com/post/databricks-ci-cd" target="_blank" rel="noopener" aria-label="Article: CI/CD for Databricks at scale">
-              <div class="project-title">CI/CD for Databricks at scale</div>
-              <div class="project-meta">Databricks · CI/CD · Governance</div>
-              <div class="project-arrow" aria-hidden="true">→</div>
-            </a>
-            <a class="project-row" href="https://example.com/post/reliable-ingestion" target="_blank" rel="noopener" aria-label="Article: Designing reliable data ingestion">
-              <div class="project-title">Designing reliable data ingestion</div>
-              <div class="project-meta">Retries · Idempotency · Schema</div>
-              <div class="project-arrow" aria-hidden="true">→</div>
-            </a>
-            <a class="project-row" href="https://example.com/post/observability" target="_blank" rel="noopener" aria-label="Article: Observability for data platforms">
-              <div class="project-title">Observability for data platforms</div>
-              <div class="project-meta">Metrics · Logs · Alerts</div>
-              <div class="project-arrow" aria-hidden="true">→</div>
-            </a>
+        <!-- Services -->
+        <section id="services" class="section" aria-labelledby="services-title">
+          <div class="container">
+            <h2 id="services-title" class="section-title" data-reveal>Services</h2>
+            <div class="services-grid" data-reveal>
+              <article class="service-item">
+                <span class="service-number">01</span>
+                <h3>Data platform design</h3>
+                <p>Architecture and implementation of cloud-native data platforms on AWS and Azure. From ingestion to serving, built for scale and maintainability.</p>
+              </article>
+              <article class="service-item">
+                <span class="service-number">02</span>
+                <h3>ETL & pipeline engineering</h3>
+                <p>Robust ETL/ELT pipelines with PySpark, Databricks, and cloud-native tooling. Schema management, retries, idempotency baked in.</p>
+              </article>
+              <article class="service-item">
+                <span class="service-number">03</span>
+                <h3>MLOps & CI/CD</h3>
+                <p>Automated training, testing, and deployment pipelines. Containers, IaC, and workflow orchestration for repeatable delivery.</p>
+              </article>
+              <article class="service-item">
+                <span class="service-number">04</span>
+                <h3>Observability & reliability</h3>
+                <p>Metrics, logging, alerting, and SLOs for data systems. Keep pipelines healthy and catch problems before users do.</p>
+              </article>
+              <article class="service-item">
+                <span class="service-number">05</span>
+                <h3>Cost & performance tuning</h3>
+                <p>Optimize jobs, clusters, and storage layers for throughput and cost. Practical improvements, not theoretical benchmarks.</p>
+              </article>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Process -->
-      <section id="process" class="section" aria-labelledby="process-title">
-        <div class="container">
-          <h2 id="process-title" class="section-title" data-reveal>How I work</h2>
-          <ol class="process" data-reveal>
-            <li>
-              <h3>1. Discovery</h3>
-              <p>Clarify objectives, constraints, teams, and success metrics.</p>
-            </li>
-            <li>
-              <h3>2. Technical design</h3>
-              <p>Lean architecture and delivery plan focused on outcomes and reliability.</p>
-            </li>
-            <li>
-              <h3>3. Implementation</h3>
-              <p>Iterative delivery with CI/CD, testing, and visibility baked in.</p>
-            </li>
-            <li>
-              <h3>4. Continuous support</h3>
-              <p>Handover, documentation, and ongoing improvement as needs evolve.</p>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="section" aria-labelledby="contact-title">
-        <div class="container content-narrow">
-          <h2 id="contact-title" class="section-title" data-reveal>Contact</h2>
-          <p class="lead" data-reveal>
-            Interested in improving reliability, delivery speed, or platform efficiency? Let’s start with a short call.
-          </p>
-          <div class="contact-actions" data-reveal>
-            <!-- Replace with your domain/email -->
-            <a class="btn btn-primary" href="mailto:tobias.chavarria.castro@gmail.com" aria-label="Email Tobías">Email me</a>
-            <a class="btn" href="https://www.linkedin.com/in/tobiaschc/" rel="me noopener" target="_blank" aria-label="LinkedIn profile">LinkedIn</a>
-            <a class="btn" href="https://github.com/tobiaschc" rel="me noopener" target="_blank" aria-label="GitHub profile">GitHub</a>
+        <!-- Tech Stack -->
+        <section id="tech" class="section" aria-labelledby="tech-title">
+          <div class="container">
+            <h2 id="tech-title" class="section-title" data-reveal>Tech stack</h2>
+            <div class="tech-grid" data-reveal>
+              <div class="tech-col">
+                <h3>Languages</h3>
+                <ul>
+                  <li>Python</li>
+                  <li>SQL</li>
+                  <li>C++</li>
+                </ul>
+              </div>
+              <div class="tech-col">
+                <h3>Platforms</h3>
+                <ul>
+                  <li>AWS (SageMaker, EMR, S3)</li>
+                  <li>Azure (Databricks, ADF)</li>
+                  <li>Databricks / Unity Catalog</li>
+                </ul>
+              </div>
+              <div class="tech-col">
+                <h3>Infrastructure</h3>
+                <ul>
+                  <li>Docker, Kubernetes</li>
+                  <li>Terraform HCP, Ansible</li>
+                  <li>GitHub Actions</li>
+                </ul>
+              </div>
+              <div class="tech-col">
+                <h3>Data & ML</h3>
+                <ul>
+                  <li>PySpark</li>
+                  <li>ETL / ELT pipelines</li>
+                  <li>Model serving & monitoring</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <p class="muted" data-reveal>
-            Preferred domain: <strong>tobiashc.com</strong> • Based in Madrid, working with clients across Europe.
-          </p>
-        </div>
-      </section>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="section" aria-labelledby="projects-title">
+          <div class="container">
+            <h2 id="projects-title" class="section-title" data-reveal>Selected work</h2>
+            <div class="project-list" data-reveal>
+              <article class="project-row">
+                <div class="project-info">
+                  <h3 class="project-title">Metadata-driven ingestion framework</h3>
+                  <p class="project-desc">A Python library for declarative data ingestion across cloud sources. Config-driven, retry-aware, schema-validated.</p>
+                  <p class="project-meta">Python / SQL / Docker / GitHub Actions</p>
+                </div>
+                <span class="project-arrow" aria-hidden="true">&rarr;</span>
+              </article>
+              <article class="project-row">
+                <div class="project-info">
+                  <h3 class="project-title">Databricks workflow orchestration</h3>
+                  <p class="project-desc">End-to-end orchestration for analytics workloads on Databricks with Unity Catalog governance and automated quality checks.</p>
+                  <p class="project-meta">Databricks / Python / SQL / Unity Catalog</p>
+                </div>
+                <span class="project-arrow" aria-hidden="true">&rarr;</span>
+              </article>
+              <article class="project-row">
+                <div class="project-info">
+                  <h3 class="project-title">Pipeline observability platform</h3>
+                  <p class="project-desc">Monitoring and alerting layer for production data pipelines. Metrics, log aggregation, and SLO dashboards for a fintech data team.</p>
+                  <p class="project-meta">CI/CD / Docker / Observability / Python</p>
+                </div>
+                <span class="project-arrow" aria-hidden="true">&rarr;</span>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Process -->
+        <section id="process" class="section" aria-labelledby="process-title">
+          <div class="container">
+            <h2 id="process-title" class="section-title" data-reveal>How I work</h2>
+            <ol class="process-grid" data-reveal>
+              <li class="process-step">
+                <span class="process-number">01</span>
+                <h3>Discovery</h3>
+                <p>Understand your objectives, constraints, team, and what success looks like.</p>
+              </li>
+              <li class="process-step">
+                <span class="process-number">02</span>
+                <h3>Technical design</h3>
+                <p>Lean architecture and a delivery plan focused on outcomes and reliability.</p>
+              </li>
+              <li class="process-step">
+                <span class="process-number">03</span>
+                <h3>Build</h3>
+                <p>Iterative delivery with CI/CD, testing, and observability from day one.</p>
+              </li>
+              <li class="process-step">
+                <span class="process-number">04</span>
+                <h3>Handover & support</h3>
+                <p>Documentation, knowledge transfer, and ongoing improvements as your needs evolve.</p>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- Testimonials (uncomment when ready)
+        <section id="testimonials" class="section" aria-labelledby="testimonials-title">
+          <div class="container content-narrow">
+            <h2 id="testimonials-title" class="section-title" data-reveal>What clients say</h2>
+            <div class="testimonial-list" data-reveal>
+              <figure class="testimonial">
+                <blockquote>
+                  <p>"Tobías quickly stabilized our pipelines and set up CI/CD from scratch. Incidents dropped to near-zero while delivery speed increased."</p>
+                </blockquote>
+                <figcaption>Head of Data, Fintech scale-up</figcaption>
+              </figure>
+              <figure class="testimonial">
+                <blockquote>
+                  <p>"His pragmatic approach to Databricks governance and workflows saved us time and cloud costs from day one. No unnecessary complexity."</p>
+                </blockquote>
+                <figcaption>Platform Lead, Retail analytics</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+        -->
+
+        <!-- Contact -->
+        <section id="contact" class="section section-contact" aria-labelledby="contact-title">
+          <div class="container content-narrow">
+            <h2 id="contact-title" class="section-title" data-reveal>Let's work together</h2>
+            <p class="contact-lead" data-reveal>
+              Need help with data platform reliability, delivery speed, or cloud costs? Start with a short conversation — no commitment.
+            </p>
+            <div class="contact-actions" data-reveal>
+              <a class="btn btn-primary" href="mailto:contact@tobiaschc.com">Email me</a>
+              <a class="btn btn-outline" href="https://www.linkedin.com/in/tobiaschc/" rel="me noopener" target="_blank">LinkedIn</a>
+              <a class="btn btn-outline" href="https://github.com/tobiaschc" rel="me noopener" target="_blank">GitHub</a>
+            </div>
+            <p class="contact-note muted" data-reveal>
+              Based in Madrid, working with clients across Europe. Usually respond within 24 hours.
+            </p>
+          </div>
+        </section>
       </main>
     </div>
 
     <footer class="site-footer" role="contentinfo">
       <div class="container footer-inner">
-        <p>© <span id="year"></span> Tobías Chavarría. All rights reserved.</p>
-        <p>
-          <a href="#" class="muted">Back to top</a>
-        </p>
+        <p>&copy; <span id="year"></span> Tobías Chavarría</p>
+        <p><a href="#" class="muted">Back to top</a></p>
       </div>
     </footer>
+
+    <button class="theme-toggle theme-fixed" aria-label="Toggle dark mode" aria-pressed="false"></button>
   </body>
-  </html>
+</html>

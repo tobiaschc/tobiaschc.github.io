@@ -1,6 +1,3 @@
-// Dark mode toggle with preference persistence
-// - Respects `prefers-color-scheme`
-// - Saves user choice in localStorage
 (function () {
   const storageKey = 'theme-preference';
   const classDark = 'theme-dark';
@@ -14,48 +11,54 @@
   const applyTheme = (theme) => {
     const isDark = theme === 'dark';
     document.body.classList.toggle(classDark, isDark);
-    const toggle = document.getElementById('theme-toggle');
-    if (toggle) toggle.setAttribute('aria-pressed', String(isDark));
+    document.querySelectorAll('.theme-toggle').forEach((t) => {
+      t.setAttribute('aria-pressed', String(isDark));
+    });
   };
 
-  // Initialize
   applyTheme(getPreference());
 
-  // Bind toggle
   window.addEventListener('DOMContentLoaded', () => {
-    // Mobile menu toggle
+    // Mobile menu
     const header = document.querySelector('.header');
     const menuBtn = document.getElementById('menu-toggle');
     const headerNav = document.getElementById('header-nav');
+
     if (menuBtn && header && headerNav) {
-      menuBtn.addEventListener('click', () => {
-        const open = header.classList.toggle('open');
+      headerNav.setAttribute('hidden', '');
+
+      const setMenu = (open) => {
+        header.classList.toggle('open', open);
+        document.body.classList.toggle('menu-open', open);
         menuBtn.setAttribute('aria-expanded', String(open));
+        if (open) headerNav.removeAttribute('hidden');
+        else headerNav.setAttribute('hidden', '');
+      };
+
+      menuBtn.addEventListener('click', () => setMenu(!header.classList.contains('open')));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && header.classList.contains('open')) setMenu(false);
       });
-      // Close menu when a link is clicked
+      window.matchMedia('(min-width: 881px)').addEventListener('change', () => setMenu(false));
       headerNav.addEventListener('click', (e) => {
-        const target = e.target;
-        if (target && target.tagName === 'A') {
-          header.classList.remove('open');
-          menuBtn.setAttribute('aria-expanded', 'false');
-        }
+        if (e.target.tagName === 'A') setMenu(false);
       });
     }
 
-    const toggle = document.getElementById('theme-toggle');
-    if (toggle) {
-      toggle.addEventListener('click', () => {
+    // Theme toggles
+    document.querySelectorAll('.theme-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
         const next = document.body.classList.contains(classDark) ? 'light' : 'dark';
         localStorage.setItem(storageKey, next);
         applyTheme(next);
       });
-    }
+    });
 
-    // Update footer year
+    // Footer year
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-    // Subtle reveal on scroll
+    // Scroll reveal
     const revealNodes = document.querySelectorAll('[data-reveal]');
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries) => {
@@ -65,23 +68,18 @@
             io.unobserve(e.target);
           }
         }
-      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
       revealNodes.forEach((n) => io.observe(n));
     } else {
-      // Fallback: reveal immediately
       revealNodes.forEach((n) => n.classList.add('in-view'));
     }
 
-    // Highlight active nav link based on scroll
-    const navLinks = Array.from(document.querySelectorAll('.site-nav a, .header-nav a'));
-    const sectionIds = navLinks.map((a) => a.getAttribute('href')).filter(Boolean).filter((h) => h.startsWith('#'));
-    const sectionEls = sectionIds
-      .map((id) => document.querySelector(id))
-      .filter((el) => el && (el.id === 'about' || el.id === 'services' || el.id === 'tech' || el.id === 'projects' || el.id === 'writing' || el.id === 'process' || el.id === 'contact'));
+    // Active nav tracking
+    const navLinks = Array.from(document.querySelectorAll('.site-nav a'));
+    const sectionIds = navLinks.map((a) => a.getAttribute('href')).filter((h) => h && h.startsWith('#'));
+    const sectionEls = sectionIds.map((id) => document.querySelector(id)).filter(Boolean);
 
-    const linkFor = (id) => navLinks.find((a) => a.getAttribute('href') === `#${id}`);
     let activeId = null;
-
     const setActive = (id) => {
       if (id === activeId) return;
       activeId = id;
@@ -90,12 +88,11 @@
 
     if ('IntersectionObserver' in window && sectionEls.length) {
       const spy = new IntersectionObserver((entries) => {
-        // Choose the most visible entry near the top
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
         if (visible[0]) setActive(visible[0].target.id);
-      }, { rootMargin: '-30% 0px -60% 0px', threshold: [0.1, 0.25, 0.5, 0.75, 1] });
+      }, { rootMargin: '-20% 0px -60% 0px', threshold: [0.1, 0.3, 0.5, 0.75] });
       sectionEls.forEach((el) => spy.observe(el));
     }
   });
