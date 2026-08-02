@@ -6,14 +6,14 @@
     <title>Tobías Chavarría — Data Platform Engineer</title>
     <meta name="description" content="Data (Platform) Engineer | Cloud Native | Databricks. Helping engineering teams design, build, and operate reliable data platforms. Based in Madrid." />
     <meta name="robots" content="index,follow" />
-    <link rel="canonical" href="https://tobiashc.com/" />
+    <link rel="canonical" href="https://tobiaschc.com/" />
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Tobías Chavarría — Data Platform Engineer" />
     <meta property="og:description" content="I help engineering teams design, build, and operate reliable cloud-native data platforms." />
-    <meta property="og:url" content="https://tobiashc.com/" />
+    <meta property="og:url" content="https://tobiaschc.com/" />
     <meta property="og:image" content="assets/og-image.svg" />
     <meta name="twitter:card" content="summary_large_image" />
 
@@ -26,6 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="styles.css" />
+    <script src="chat-config.js"></script>
     <script defer src="script.js"></script>
   </head>
   <body>
@@ -37,7 +38,7 @@
           <span class="brand-name">Tobías Chavarría</span>
         </a>
         <div class="header-actions">
-          <a class="btn btn-small hide-on-mobile" href="tobias_chavarria_c_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+          <a class="btn btn-small hide-on-mobile" href="cv/tobias_chavarria_c_CV.pdf" target="_blank" rel="noopener">Download CV</a>
           <button class="theme-toggle theme-header" aria-label="Toggle dark mode" aria-pressed="false"></button>
           <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="header-nav">Menu</button>
         </div>
@@ -227,7 +228,7 @@
               </div>
             </div>
             <p class="about-cta" data-reveal>
-              <a class="btn btn-outline" href="tobias_chavarria_c_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+              <a class="btn btn-outline" href="cv/tobias_chavarria_c_CV.pdf" target="_blank" rel="noopener">Download CV</a>
             </p>
           </div>
         </section>
@@ -420,5 +421,20 @@
     </footer>
 
     <button class="theme-toggle theme-fixed" aria-label="Toggle dark mode" aria-pressed="false"></button>
+
+    <!-- AI chat widget -->
+    <button id="chat-fab" class="chat-fab" aria-label="Open AI chat assistant" hidden>Ask AI</button>
+    <div id="chat-panel" class="chat-panel" role="dialog" aria-label="AI chat assistant" aria-hidden="true">
+      <div class="chat-header">
+        <span class="chat-header-title">Ask about Tobías</span>
+        <button id="chat-close" class="chat-close" aria-label="Close chat">&times;</button>
+      </div>
+      <div id="chat-messages" class="chat-messages"></div>
+      <div id="chat-suggestions" class="chat-suggestions"></div>
+      <form id="chat-form" class="chat-input-row">
+        <textarea id="chat-input" rows="1" placeholder="Type your question…" aria-label="Your question"></textarea>
+        <button id="chat-send" class="chat-send" type="submit" aria-label="Send">&uarr;</button>
+      </form>
+    </div>
   </body>
 </html>

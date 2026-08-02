@@ -6,11 +6,18 @@ A minimalist, fast, and fully static single‑page portfolio to attract B2B clie
 
 ```
 .
-├── index.html        # Single-page site with all sections
-├── styles.css        # Minimal, premium design with light/dark themes
-├── script.js         # Dark mode toggle + subtle reveal animations
+├── index.html          # Single-page site with all sections
+├── styles.css          # Minimal, premium design with light/dark themes
+├── script.js           # Dark mode toggle, reveal animations, AI chat widget
+├── chat-config.js      # Worker URL for the AI chat (safe to commit, not secret)
+├── chat-worker/        # Cloudflare Worker powering the AI chat assistant
+│   ├── worker.js        # Proxy to Workers AI — no need to edit
+│   ├── config.js         # 🔒 gitignored — your system prompt, filled from config.example.js
+│   ├── config.example.js # Template for your Worker config
+│   ├── wrangler.toml     # Worker deployment config
+│   └── DEPLOY.md         # Step-by-step chat setup guide
 ├── assets/
-│   └── favicon.svg   # Simple SVG favicon
+│   └── favicon.svg    # Simple SVG favicon
 ├── .gitignore
 └── README.md
 ```
@@ -48,6 +55,36 @@ Custom domain on Cloudflare Pages:
 - Add your domain in Pages → Custom domains and follow the DNS wizard.
 - Ensure `www` and apex are covered (CNAME/ALIAS as instructed by Cloudflare).
 
+## AI Chat Assistant (optional)
+
+A floating chat widget lets visitors ask questions about your background. It's powered by Llama 3.3 via Cloudflare Workers AI, proxied through a Cloudflare Worker — no server to maintain, runs on Cloudflare's free tier.
+
+The widget is **hidden by default** and only appears once `CHAT_WORKER_URL` in `chat-config.js` is set — nothing to break until you deploy it.
+
+**Setup:**
+
+1. Configure your profile:
+   ```bash
+   cp chat-worker/config.example.js chat-worker/config.js
+   ```
+   Edit `chat-worker/config.js` — it's pre-filled with your current experience, skills, and services from this site, but review it and keep it in sync as your background changes. This file is gitignored and never committed.
+
+2. Deploy the Worker — full steps in [chat-worker/DEPLOY.md](chat-worker/DEPLOY.md):
+   ```bash
+   cd chat-worker
+   npm install -g wrangler
+   wrangler login
+   wrangler kv:namespace create RATE_LIMIT_KV   # paste the id into wrangler.toml
+   wrangler deploy
+   ```
+
+3. Add the resulting Worker URL to `chat-config.js`:
+   ```js
+   const CHAT_WORKER_URL = "https://tobiaschc-cv-chat.yoursubdomain.workers.dev";
+   ```
+
+Redeploy the Worker (`wrangler deploy`) any time you update `chat-worker/config.js`.
+
 ## Edit Content
 
 - Page content: `index.html` (sections: Hero, About, Services, Tech Stack, Projects, Process, Contact, Footer)
@@ -68,6 +105,7 @@ Custom domain on Cloudflare Pages:
 - [ ] Test keyboard navigation and focus states
 - [ ] Deploy to GitHub Pages and/or Cloudflare Pages
 - [ ] Set up custom domain and HTTPS
+- [ ] (Optional) Deploy the AI chat Worker and set `CHAT_WORKER_URL` in `chat-config.js`
 
 ## License (MIT)
 

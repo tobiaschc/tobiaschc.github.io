@@ -1,0 +1,10 @@
+name = "tobiaschc-cv-chat"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[ai]
+binding = "AI"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "2d334a92b9224e9cb58a940553c5856c"

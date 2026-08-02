@@ -135,5 +135,135 @@
       }, { passive: true });
       detectActiveSection();
     }
+
+    // AI chat widget
+    const workerUrl = typeof CHAT_WORKER_URL !== 'undefined' ? CHAT_WORKER_URL : '';
+    if (workerUrl) initChatWidget(workerUrl);
   });
+
+  function initChatWidget(workerUrl) {
+    const fab = document.getElementById('chat-fab');
+    const panel = document.getElementById('chat-panel');
+    const closeBtn = document.getElementById('chat-close');
+    const form = document.getElementById('chat-form');
+    const input = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('chat-send');
+    const messagesEl = document.getElementById('chat-messages');
+    const suggestionsEl = document.getElementById('chat-suggestions');
+    if (!fab || !panel || !form || !input || !messagesEl) return;
+
+    const SUGGESTIONS = [
+      "What are you working on now?",
+      "What kind of projects do you take on?",
+      "What's your tech stack?",
+      "How can I contact you?",
+    ];
+
+    let history = [];
+    let initialized = false;
+    let isLoading = false;
+    let open = false;
+
+    fab.hidden = false;
+
+    function appendBubble(role, text) {
+      const el = document.createElement('div');
+      el.className = `chat-bubble ${role}`;
+      el.textContent = text;
+      messagesEl.appendChild(el);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      return el;
+    }
+
+    function renderSuggestions() {
+      if (!suggestionsEl) return;
+      suggestionsEl.innerHTML = '';
+      SUGGESTIONS.forEach((q) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'chat-suggestion';
+        btn.textContent = q;
+        btn.addEventListener('click', () => {
+          input.value = q;
+          suggestionsEl.innerHTML = '';
+          sendMessage();
+        });
+        suggestionsEl.appendChild(btn);
+      });
+    }
+
+    function initChat() {
+      if (initialized) return;
+      initialized = true;
+      appendBubble('assistant', "Hi! I'm an AI assistant trained on Tobías's background. Ask me anything.");
+      renderSuggestions();
+    }
+
+    function setOpen(next) {
+      open = next;
+      panel.classList.toggle('open', open);
+      panel.setAttribute('aria-hidden', String(!open));
+      if (open) {
+        initChat();
+        setTimeout(() => input.focus(), 150);
+      }
+    }
+
+    fab.addEventListener('click', () => setOpen(!open));
+    closeBtn?.addEventListener('click', () => setOpen(false));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && open) setOpen(false);
+    });
+
+    input.addEventListener('input', () => {
+      input.style.height = 'auto';
+      input.style.height = Math.min(input.scrollHeight, 90) + 'px';
+    });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    async function sendMessage() {
+      if (isLoading) return;
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      input.style.height = 'auto';
+      appendBubble('user', text);
+      history.push({ role: 'user', content: text });
+
+      const typingEl = appendBubble('assistant', 'thinking…');
+      typingEl.classList.add('typing');
+      isLoading = true;
+      sendBtn.disabled = true;
+
+      try {
+        const res = await fetch(workerUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: history.slice(-10) }),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        const data = await res.json();
+        if (data.error) throw new Error(data.error);
+        typingEl.remove();
+        appendBubble('assistant', data.reply);
+        history.push({ role: 'assistant', content: data.reply });
+      } catch (err) {
+        typingEl.remove();
+        appendBubble('assistant', 'Sorry, something went wrong. Please try again or reach out directly.');
+      } finally {
+        isLoading = false;
+        sendBtn.disabled = false;
+      }
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      sendMessage();
+    });
+  }
 })();
