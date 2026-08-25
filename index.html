@@ -67,7 +67,7 @@
               <span class="brand-mark" aria-hidden="true">TC</span>
               <span class="brand-name">Tobías Chavarría</span>
             </a>
-            <p class="role">Data Platform Engineer</p>
+            <p class="role">Data Engineer | Cloud, DevOps & AI</p>
             <div class="availability">
               <a href="#contact" class="pill pill-available">Available for projects</a>
             </div>
@@ -102,14 +102,14 @@
         <section class="hero" aria-labelledby="hero-title">
           <div class="container content-narrow">
             <div class="hero-badge show-on-mobile" aria-label="Role and availability">
-              <a href="#services" class="pill pill-accent">Data Platform Engineer</a>
+              <a href="#services" class="pill pill-accent">Data Engineer | Cloud, DevOps & AI</a>
               <a href="#contact" class="pill pill-available">Available for projects</a>
             </div>
             <h1 id="hero-title" class="hero-title" data-reveal>
               I build and operate<br />reliable data platforms
             </h1>
             <p class="hero-sub" data-reveal>
-              Data Platform Engineer with a cloud-native approach. I help engineering teams design pipelines, automate infrastructure, and ship data systems that stay up.
+              Data Engineer with a cloud-native approach across cloud, DevOps, and AI. I help engineering teams design pipelines, automate infrastructure, and ship data systems that stay up.
             </p>
             <div class="hero-ctas" data-reveal>
               <a class="btn btn-primary" href="#contact">Let's talk</a>
@@ -146,14 +146,14 @@
                 <div class="timeline-period">2026 — Present</div>
                 <div class="timeline-body">
                   <h3>Data Platform Engineer <span class="muted">/ Amadeus</span></h3>
-                  <p>Data platform engineering for one of the world's largest travel technology companies. Cloud-native infrastructure and data systems at scale.</p>
+                  <p>Onboard client teams onto the Big Data Platform, enabling self-service adoption of Databricks, Snowflake, and AI services. Provide consultancy to internal teams to optimize workflows and automate ServiceNow incident handling.</p>
                 </div>
               </article>
               <article class="timeline-item">
                 <div class="timeline-period">2025 — 2026</div>
                 <div class="timeline-body">
-                  <h3>Senior Cloud Data Software Engineer <span class="muted">/ BASF</span></h3>
-                  <p>Data distribution strategies with Unity Catalog, Azure Data Factory, and Databricks. Built a metadata-driven ingestion framework for cross-team data sharing.</p>
+                  <h3>Senior Cloud Data Software Engineer — Team Lead <span class="muted">/ BASF</span></h3>
+                  <p>Led the design and development of a metadata-driven ingestion framework, ingesting data from SAP, Kafka, and REST APIs into Delta Lake via Databricks, governed through Unity Catalog. Built Datadog dashboards for pipeline observability and maintained Azure Data Factory pipelines from SAP and SQL Server.</p>
                 </div>
               </article>
               <article class="timeline-item">
@@ -187,7 +187,7 @@
             <h2 id="about-title" class="section-title" data-reveal>About</h2>
             <div class="about-lead" data-reveal>
               <p>
-                Tinkerer. Builder. Always one tweak away from a better workflow. I work where data, software, and infrastructure meet — building things that are reliable, maintainable, and pleasant to work with.
+                Builder. Problem-solver. Always one tweak away from a better workflow. I work where data, software, and infrastructure meet — building things that are reliable, maintainable, and pleasant to work with.
               </p>
               <p>
                 I've worked across travel tech, chemicals, fintech, consulting, and banking in Costa Rica, France, and Spain. Background in mathematics, with an MSc in Data Engineering for AI and a Master's in Mathematical Methods.
@@ -273,36 +273,35 @@
             <h2 id="tech-title" class="section-title" data-reveal>Tech stack</h2>
             <div class="tech-grid" data-reveal>
               <div class="tech-col">
-                <h3>Languages</h3>
+                <h3>Languages & Backend</h3>
                 <ul>
-                  <li>Python</li>
-                  <li>SQL</li>
-                  <li>Bash</li>
-                  <li>Docker</li>
-                </ul>
-              </div>
-              <div class="tech-col">
-                <h3>Platforms</h3>
-                <ul>
-                  <li>AWS (SageMaker, EMR, S3)</li>
-                  <li>Azure (Databricks, ADF)</li>
-                  <li>Databricks / Unity Catalog</li>
-                </ul>
-              </div>
-              <div class="tech-col">
-                <h3>Infrastructure</h3>
-                <ul>
-                  <li>Docker, Kubernetes</li>
-                  <li>Terraform HCP, Ansible</li>
-                  <li>GitHub Actions</li>
+                  <li>Python (FastAPI, Pydantic, SQLAlchemy, SQLModel)</li>
+                  <li>SQL (stored procedures, views, window functions)</li>
+                  <li>Bash scripting</li>
                 </ul>
               </div>
               <div class="tech-col">
                 <h3>Data & ML</h3>
                 <ul>
-                  <li>PySpark</li>
-                  <li>ETL / ELT pipelines</li>
-                  <li>Model serving & monitoring</li>
+                  <li>Databricks (Asset Bundles, Unity Catalog, Delta Lake, Autoloader, MLflow)</li>
+                  <li>PySpark, Snowflake</li>
+                  <li>SageMaker, EMR, CDC pipelines</li>
+                </ul>
+              </div>
+              <div class="tech-col">
+                <h3>Cloud & GenAI</h3>
+                <ul>
+                  <li>AWS (Lambda, AppRunner, SQS, S3)</li>
+                  <li>Azure (Data Factory, Storage Accounts, VNets)</li>
+                  <li>RAG, Azure OpenAI/LLM</li>
+                </ul>
+              </div>
+              <div class="tech-col">
+                <h3>Infra & DevOps</h3>
+                <ul>
+                  <li>Docker, Kubernetes, container registries</li>
+                  <li>Terraform, Ansible, GitHub Actions, Azure DevOps</li>
+                  <li>Datadog, Grafana, ServiceNow</li>
                 </ul>
               </div>
             </div>
@@ -332,9 +331,9 @@
               </article>
               <article class="project-row">
                 <div class="project-info">
-                  <h3 class="project-title">Pipeline observability platform</h3>
-                  <p class="project-desc">Monitoring and alerting layer for production data pipelines. Metrics, log aggregation, and SLO dashboards for a fintech data team.</p>
-                  <p class="project-meta">CI/CD / Docker / Observability / Python</p>
+                  <h3 class="project-title">RAG-powered financial planning chatbot</h3>
+                  <p class="project-desc">Retrieval-augmented generation pipeline powering a Financial Plan creation chatbot, from document retrieval to grounded generation, for a banking data team.</p>
+                  <p class="project-meta">RAG / Azure OpenAI/LLM / Python / TextExtract</p>
                 </div>
                 <span class="project-arrow" aria-hidden="true">&rarr;</span>
               </article>
